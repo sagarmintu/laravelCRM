@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Lead;
 
 class AdminController extends Controller
 {
@@ -53,7 +54,31 @@ class AdminController extends Controller
                 'last_name' => 'required',
                 'company' => 'required',
             ]);
+
+            $lead = new Lead;
+            $lead->first_name = $request['first_name'];
+            $lead->title = $request['title'];
+            $lead->phone = $request['phone'];
+            $lead->lead_source = $request['lead_source'];
+            $lead->last_name = $request['last_name'];
+            $lead->company = $request['company'];
+            $lead->email = $request['email'];
+            $lead->lead_status = $request['lead_status'];
+            $lead->street = $request['street'];
+            $lead->state = $request['state'];
+            $lead->country = $request['country'];
+            $lead->city = $request['city'];
+            $lead->zip_code = $request['zip_code'];
+            $lead->description = $request['description'];
+            $lead->save();
+            return redirect('/leads/manage-leads')->with('message','Leads Data Added Successfully');
         }
         return view('leads.add_lead');
+    }
+
+    public function manage_leads()
+    {
+        $leads = Lead::all();
+        return view('leads.manage-leads', compact('leads'));
     }
 }

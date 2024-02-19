@@ -39,12 +39,15 @@
                                 @enderror
                             </fieldset>
 
+                            @php
+                                $lead_source = array('Advertising', 'Socail Media', 'Direct Call', 'Search');
+                            @endphp
                             <fieldset class="form-group">
                                 <label>Lead Source</label>
                                 <select name="lead_source" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    @foreach($lead_source as $single)
+                                        <option value="{{ $single }}">{{ $single }}</option>
+                                    @endforeach
                                 </select>
                             </fieldset>
                         </div>
@@ -60,7 +63,7 @@
 
                             <fieldset class="form-group">
                                 <label>Company<span class="text-danger">*</span></label>
-                                <input type="number" name="company" class="form-control" placeholder="Enter Company" value="{{ old('company') }}">
+                                <input type="text" name="company" class="form-control" placeholder="Enter Company" value="{{ old('company') }}">
                                 @error('company')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -71,12 +74,15 @@
                                 <input type="email" name="email" class="form-control" placeholder="Enter Email">
                             </fieldset>
 
+                            @php
+                                $lead_status = array('Qualifications', 'Needs Analysis', 'Proposal/Price Quote', 'Negotiation', 'Closed Won', 'Closed Lost');
+                            @endphp
                             <fieldset class="form-group">
                                 <label>Lead Status</label>
                                 <select name="lead_status" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    @foreach($lead_status as $single)
+                                        <option value="{{ $single }}">{{ $single }}</option>
+                                    @endforeach
                                 </select>
                             </fieldset>
                         </div>

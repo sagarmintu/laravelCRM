@@ -10,6 +10,8 @@
     <meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
     <link rel="shortcut icon" href="{{ url('') }}/img/icons/icon-48x48.png" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Dashboard</title>
 
@@ -42,7 +44,7 @@
                         </a>
                         <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('/leads/add-lead') }}">Add Lead</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="">Manage Leads</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('/leads/manage-leads') }}">Manage Leads</a></li>
                         </ul>
                     </li>
 

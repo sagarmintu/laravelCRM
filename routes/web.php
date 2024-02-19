@@ -24,5 +24,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::group(['prefix' => 'leads'], function(){
         Route::get('/add-lead', [AdminController::class, 'add_lead']);
         Route::post('/add-lead', [AdminController::class, 'add_lead']);
+        Route::get('/manage-leads', [AdminController::class, 'manage_leads']);
     });
 });
