@@ -40,6 +40,12 @@
 							</p>
 						</div>
 
+						@if(session()->has('message'))
+							<div class="alert alert-warning" style="font-size: 20px; font-weight: bold; margin: 10px; display: flex;justify-content: center; align-items: center;">
+								{{ session()->get('message') }}
+							</div>
+						@endif
+
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-3">

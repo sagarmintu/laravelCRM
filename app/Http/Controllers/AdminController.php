@@ -19,7 +19,7 @@ class AdminController extends Controller
 
             if(\Auth::attempt($request->only('email','password')))
             {
-                return redirect('/home');
+                return redirect('/home')->with('message','Welcome To Dashboard');
             }
             else
             {
@@ -31,13 +31,29 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('main');
+        return view('dashboard');
     }
 
     public function logout()
     {
         \Session::flush();
         \Auth::logout();
-        return redirect('/login');
+        return redirect('/login')->with('message','Please Login For Dashboard !!!');
+    }
+
+    public function add_lead(Request $request)
+    {
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'first_name' => 'required',
+                'title' => 'required',
+                'phone' => 'required|min:10',
+                'last_name' => 'required',
+                'company' => 'required',
+            ]);
+        }
+        return view('leads.add_lead');
     }
 }
