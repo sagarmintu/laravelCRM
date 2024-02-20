@@ -134,4 +134,35 @@ class AdminController extends Controller
         }
         return view('leads.edit-lead', compact('lead'));
     }
+
+    public function view_lead($id)
+    {
+        $lead = Lead::findOrFail($id);
+        if($lead == '')
+        {
+            return redirect('/leads/manage-leads');
+        }
+        return view('leads.view-lead', compact('lead'));
+    }
+
+    public function convert_lead($id, Request $request)
+    {
+        $lead = Lead::findOrFail($id);
+        if($lead == '')
+        {
+            return redirect('/leads/manage-leads');
+        }
+
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'deal' => 'required',
+                'closing_date' => 'required',
+                'lead_stage' => 'required'
+            ]);
+        }
+
+        return view('leads.convert-lead', compact('lead'));
+    }
 }

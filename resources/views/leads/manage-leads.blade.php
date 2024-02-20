@@ -18,24 +18,24 @@
                     <table id="lead-table" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Lead Name</th>
                                 <th>Company</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Lead Source</th>
+                                <th>Lead Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($leads as $lead)
                             <tr>
-                                <td>{{ $lead->id }}</td>
-                                <td>{{ $lead->first_name }} {{ $lead->last_name }}</td>
+                                <td><a href="{{ url('/leads/view-lead/'.$lead->id) }}">{{ $lead->first_name }} {{ $lead->last_name }}</a></td>
                                 <td>{{ $lead->company }}</td>
                                 <td>{{ $lead->email }}</td>
                                 <td>{{ $lead->phone }}</td>
                                 <td>{{ $lead->lead_source }}</td>
+                                <td>{{ $lead->lead_status }}</td>
                                 <td>
                                     <a href="{{ url('/leads/edit-lead/'.$lead->id) }}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
                                     <a href="{{ url('/leads/delete-lead/'.$lead->id) }}" onclick="return confirm('Are You Sure, You want To Delete This Lead?')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
