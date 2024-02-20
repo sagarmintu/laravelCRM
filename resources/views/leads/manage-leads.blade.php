@@ -18,6 +18,7 @@
                     <table id="lead-table" class="table table-bordered table-hover">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Lead Name</th>
                                 <th>Company</th>
                                 <th>Email</th>
@@ -29,29 +30,20 @@
                         <tbody>
                             @foreach($leads as $lead)
                             <tr>
+                                <td>{{ $lead->id }}</td>
                                 <td>{{ $lead->first_name }} {{ $lead->last_name }}</td>
                                 <td>{{ $lead->company }}</td>
                                 <td>{{ $lead->email }}</td>
                                 <td>{{ $lead->phone }}</td>
                                 <td>{{ $lead->lead_source }}</td>
                                 <td>
-                                    <a href="" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                                    <a href="{{ url('/leads/edit-lead/'.$lead->id) }}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                                    <a href="{{ url('/leads/delete-lead/'.$lead->id) }}" onclick="return confirm('Are You Sure, You want To Delete This Lead?')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <tfoot>
-                        <tr>
-                            <th>Lead Name</th>
-                            <th>Company</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Lead Source</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                 </div>
             </div>
         </div>
@@ -60,3 +52,15 @@
 </div>
 
 @endsection
+
+@push('scripts')
+
+<script src="//cdn.datatables.net/2.0.0/js/dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#lead-table').DataTable();
+    });
+</script>
+
+@endpush

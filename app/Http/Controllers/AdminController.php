@@ -81,4 +81,57 @@ class AdminController extends Controller
         $leads = Lead::all();
         return view('leads.manage-leads', compact('leads'));
     }
+
+    public function delete_lead($id)
+    {
+        $lead = Lead::findOrFail($id);
+        if($lead == '')
+        {
+            return redirect('/leads/manage-leads');
+        }
+        else
+        {
+            $lead->delete();
+            return redirect('/leads/manage-leads')->with('message','Leads Data Deleted');
+        }
+    }
+
+    public function edit_lead($id, Request $request)
+    {
+        $lead = Lead::findOrFail($id);
+        if($lead == '')
+        {
+            return redirect('/leads/manage-leads');
+        }
+
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'first_name' => 'required',
+                'title' => 'required',
+                'phone' => 'required|min:10',
+                'last_name' => 'required',
+                'company' => 'required',
+            ]);
+
+            $lead->first_name = $request['first_name'];
+            $lead->title = $request['title'];
+            $lead->phone = $request['phone'];
+            $lead->lead_source = $request['lead_source'];
+            $lead->last_name = $request['last_name'];
+            $lead->company = $request['company'];
+            $lead->email = $request['email'];
+            $lead->lead_status = $request['lead_status'];
+            $lead->street = $request['street'];
+            $lead->state = $request['state'];
+            $lead->country = $request['country'];
+            $lead->city = $request['city'];
+            $lead->zip_code = $request['zip_code'];
+            $lead->description = $request['description'];
+            $lead->save();
+            return redirect('/leads/manage-leads')->with('message','Leads Data Updated Successfully');
+        }
+        return view('leads.edit-lead', compact('lead'));
+    }
 }
