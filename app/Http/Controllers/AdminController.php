@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Lead;
+use App\Models\Account;
+use App\Models\Contact;
+use App\Models\Deal;
 
 class AdminController extends Controller
 {
@@ -161,6 +164,44 @@ class AdminController extends Controller
                 'closing_date' => 'required',
                 'lead_stage' => 'required'
             ]);
+
+            // Create Accounts
+            
+            $accounts = new Account;
+            $accounts->account_name = $lead->company;
+            $accounts->phone = $lead->phone;
+            $accounts->save();
+            
+            $account_id = $accounts->id;
+
+            // Create Contact
+
+            $contact = new Contact;
+            $contact->contact_name = $lead->first_name.' '.$lead->last_name;
+            $contact->account_id = $account_id;
+            $contact->email = $lead->email;
+            $contact->phone = $lead->phone;
+            $contact->save();
+
+            $contact_id = $contact->id;
+
+            // Create Deal
+
+            $deal = new Deal;
+            $deal->amount = $request['amount'];
+            $deal->deal_name = $request['deal'];
+            $deal->closing_date = $request['closing_date'];
+            $deal->deal_stage = $request['lead_stage'];
+            $deal->account_id  = $account_id;
+            $deal->contact_id = $contact_id;
+            $deal->save();
+
+            // Delete Old Lead
+
+            $lead->delete();            
+
+            return redirect('/deals/manage-deals')->with('message','Data Added Successfully');
+
         }
 
         return view('leads.convert-lead', compact('lead'));
