@@ -32,4 +32,17 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/convert-lead/{id}', [AdminController::class, 'convert_lead']);
         Route::post('/convert-lead/{id}', [AdminController::class, 'convert_lead']);
     });
+
+    Route::group(['prefix' => 'accounts'], function(){
+        Route::get('/manage-accounts', [AdminController::class, 'manage_accounts']);
+    });
+
+    Route::group(['prefix' => 'contacts'], function(){
+        Route::get('/manage-contacts', [AdminController::class, 'manage_contacts']);
+    });
+
+    Route::group(['prefix' => 'deals'], function(){
+        Route::get('/manage-deals', [AdminController::class, 'manage_deals']);
+    });
+
 });

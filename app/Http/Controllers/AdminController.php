@@ -206,4 +206,22 @@ class AdminController extends Controller
 
         return view('leads.convert-lead', compact('lead'));
     }
+
+    public function manage_accounts()
+    {
+        $accounts = Account::all();
+        return view('accounts.manage-accounts', compact('accounts'));
+    }
+
+    public function manage_contacts()
+    {
+        $contacts = Contact::all();
+        return view('contacts.manage-contacts', compact('contacts'));
+    }
+
+    public function manage_deals()
+    {
+        $deals = Deal::all();
+        return view('deals.manage-deals', compact('deals'));
+    }
 }

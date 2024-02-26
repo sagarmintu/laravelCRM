@@ -51,6 +51,36 @@
                     </li>
 
                     <li class="sidebar-item">
+                        <a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">Accounts</span>
+                        </a>
+                        <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('/accounts/add-account') }}">Add Account</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('/accounts/manage-accounts') }}">Manage Accounts</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Contacts</span>
+                        </a>
+                        <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('/contacts/add-contact') }}">Add Contact</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('/contacts/manage-contacts') }}">Manage Contacts</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Deals</span>
+                        </a>
+                        <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('/deals/add-deal') }}">Add Deal</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('/deals/manage-deals') }}">Manage Deals</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- <li class="sidebar-item">
                         <a class="sidebar-link" href="pages-profile.html">
                             <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
                         </a>
@@ -136,10 +166,10 @@
                         <a class="sidebar-link" href="maps-google.html">
                             <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
 
-                <div class="sidebar-cta">
+                <!-- <div class="sidebar-cta">
                     <div class="sidebar-cta-content">
                         <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
                         <div class="mb-3 text-sm">
@@ -148,7 +178,7 @@
                         <a href="https://adminkit.io/pricing" target="_blank"
                             class="btn btn-outline-primary btn-block">Upgrade</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </nav>
 
