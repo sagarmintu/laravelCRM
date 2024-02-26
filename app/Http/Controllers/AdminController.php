@@ -215,13 +215,13 @@ class AdminController extends Controller
 
     public function manage_contacts()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::with('getAccountDetails')->get();
         return view('contacts.manage-contacts', compact('contacts'));
     }
 
     public function manage_deals()
     {
-        $deals = Deal::all();
+        $deals = Deal::with('get_account_details')->with('get_contact_details')->get();
         return view('deals.manage-deals', compact('deals'));
     }
 }

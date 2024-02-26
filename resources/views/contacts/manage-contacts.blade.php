@@ -29,7 +29,7 @@
                             @foreach($contacts as $contact)
                             <tr>
                                 <td>{{ $contact->contact_name }}</td>
-                                <td>{{ $contact->account_id }}</td>
+                                <td>{{ $contact->getAccountDetails->account_name }}</td>
                                 <td>{{ $contact->email }}</td>
                                 <td>{{ $contact->phone }}</td>
                                 <td>
