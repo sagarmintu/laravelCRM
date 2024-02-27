@@ -295,11 +295,40 @@ class AdminController extends Controller
             $contact->phone = $request->phone;
             $contact->email = $request->email;
             $contact->save();
-            return redirect('/contacts/manage-contacts')->with('message','Accounts Details Added Successfully');
+            return redirect('/contacts/manage-contacts')->with('message','Contact Details Added Successfully');
         }
 
         $account_data = Account::all();
 
         return view('contacts.add_contact', compact('account_data'));
+    }
+
+    public function edit_contact($id, Request $request)
+    {
+        $data['contact_details'] = Contact::findOrFail($id);
+        if($data['contact_details'] == '')
+        {
+            return redirect('/contacts/manage-contacts');
+        }
+
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'contact_name' => 'required',
+                'account_id' => 'required',
+                'phone' => 'required',
+            ]);
+
+            $data['contact_details']->contact_name = $request->contact_name;
+            $data['contact_details']->account_id = $request->account_id;
+            $data['contact_details']->phone = $request->phone;
+            $data['contact_details']->email = $request->email;
+            $data['contact_details']->save();
+            return redirect('/contacts/manage-contacts')->with('message','Contact Details Updated Successfully');
+        }
+
+        $data['account_data'] = Account::all();
+        return view('contacts.edit_contact')->with($data);
     }
 }
