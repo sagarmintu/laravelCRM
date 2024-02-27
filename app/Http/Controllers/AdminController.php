@@ -270,4 +270,11 @@ class AdminController extends Controller
 
         return view('accounts.edit_account', compact('account'));
     }
+
+    public function delete_account($id)
+    {
+        $account = Account::findOrFail($id);
+        $account->delete();            
+        return redirect('/accounts/manage-accounts')->with('message','Accounts Details Deleted');
+    }
 }

@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/manage-accounts', [AdminController::class, 'manage_accounts']);
         Route::get('/edit-accounts/{id}', [AdminController::class, 'edit_accounts']);
         Route::post('/edit-accounts/{id}', [AdminController::class, 'edit_accounts']);
+        Route::get('/delete-accounts/{id}', [AdminController::class, 'delete_account']);
     });
 
     Route::group(['prefix' => 'contacts'], function(){

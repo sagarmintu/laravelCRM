@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2024 at 12:48 PM
+-- Generation Time: Feb 27, 2024 at 05:30 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -44,9 +44,10 @@ INSERT INTO `accounts` (`id`, `account_name`, `phone`, `website`, `created_at`, 
 (1, 'digit insurance', '9632587419', '', '2024-02-26 04:57:48', '2024-02-26 04:57:48'),
 (2, 'TATA', '9632587418', NULL, '2024-02-26 05:00:47', '2024-02-26 05:00:47'),
 (3, 'Ralecon', '9632587415', NULL, '2024-02-26 05:04:51', '2024-02-26 05:04:51'),
-(4, 'Ralecon', '9632587415', NULL, '2024-02-26 05:09:00', '2024-02-26 05:09:00'),
+(4, 'Ralecon', '9632587412', 'https://www.ralecon.com/', '2024-02-26 05:09:00', '2024-02-26 22:56:48'),
 (5, 'digit insurance', '9632587419', NULL, '2024-02-26 05:12:08', '2024-02-26 05:12:08'),
-(6, 'ICIC Bank', '9632587419', NULL, '2024-02-26 06:01:07', '2024-02-26 06:01:07');
+(6, 'ICIC Bank', '6932541785', 'https://www.icicibank.com/', '2024-02-26 06:01:07', '2024-02-26 22:56:13'),
+(7, 'Belal Hasan Khan', '9632587412', 'TCS', '2024-02-26 22:38:07', '2024-02-26 22:38:07');
 
 -- --------------------------------------------------------
 
@@ -306,7 +307,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `contacts`

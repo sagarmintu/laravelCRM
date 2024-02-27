@@ -33,7 +33,7 @@
                         Pages
                     </li>
 
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item {{ Request::is('/home') ? 'active':'' }}">
                         <a class="sidebar-link" href="{{ url('/home') }}">
                             <i class="align-middle" data-feather="sliders"></i> <span
                                 class="align-middle">Dashboard</span>
