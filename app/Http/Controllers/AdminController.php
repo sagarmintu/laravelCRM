@@ -244,4 +244,30 @@ class AdminController extends Controller
         }
         return view('accounts.add_account');
     }
+
+    public function edit_accounts($id, Request $request)
+    {
+        $account = Account::findOrFail($id);
+        if($account == '')
+        {
+            return redirect('/accounts/manage-accounts');
+        }
+
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'account_name' => 'required',
+                'phone' => 'required',
+            ]);
+
+            $account->account_name = $request->account_name;
+            $account->phone = $request->phone;
+            $account->website = $request->website;
+            $account->save();
+            return redirect('/accounts/manage-accounts')->with('message','Accounts Details Added Successfully');
+        }
+
+        return view('accounts.edit_account', compact('account'));
+    }
 }

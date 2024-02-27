@@ -31,7 +31,7 @@
                                     <td>{{ $account->phone }}</td>
                                     <td>{{ $account->website }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                                        <a href="{{ url('/accounts/edit-accounts/'.$account->id) }}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
                                         <a href="#" onclick="return confirm('Are You Sure, You want To Delete This Lead?')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                                     </td>
                                 </tr>
