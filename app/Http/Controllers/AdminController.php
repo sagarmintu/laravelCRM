@@ -277,4 +277,29 @@ class AdminController extends Controller
         $account->delete();            
         return redirect('/accounts/manage-accounts')->with('message','Accounts Details Deleted');
     }
+
+    public function add_contact(Request $request)
+    {
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'contact_name' => 'required',
+                'account_id' => 'required',
+                'phone' => 'required',
+            ]);
+
+            $contact = new Contact;
+            $contact->contact_name = $request->contact_name;
+            $contact->account_id = $request->account_id;
+            $contact->phone = $request->phone;
+            $contact->email = $request->email;
+            $contact->save();
+            return redirect('/contacts/manage-contacts')->with('message','Accounts Details Added Successfully');
+        }
+
+        $account_data = Account::all();
+
+        return view('contacts.add_contact', compact('account_data'));
+    }
 }

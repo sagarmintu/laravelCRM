@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::group(['prefix' => 'contacts'], function(){
         Route::get('/manage-contacts', [AdminController::class, 'manage_contacts']);
+        Route::get('/add-contact', [AdminController::class, 'add_contact']);
+        Route::post('/add-contact', [AdminController::class, 'add_contact']);
     });
 
     Route::group(['prefix' => 'deals'], function(){
