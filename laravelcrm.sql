@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2024 at 06:56 AM
+-- Generation Time: Feb 26, 2024 at 12:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,88 @@ SET time_zone = "+00:00";
 --
 -- Database: `laravelcrm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `account_name` varchar(100) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `website` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `account_name`, `phone`, `website`, `created_at`, `updated_at`) VALUES
+(1, 'digit insurance', '9632587419', '', '2024-02-26 04:57:48', '2024-02-26 04:57:48'),
+(2, 'TATA', '9632587418', NULL, '2024-02-26 05:00:47', '2024-02-26 05:00:47'),
+(3, 'Ralecon', '9632587415', NULL, '2024-02-26 05:04:51', '2024-02-26 05:04:51'),
+(4, 'Ralecon', '9632587415', NULL, '2024-02-26 05:09:00', '2024-02-26 05:09:00'),
+(5, 'digit insurance', '9632587419', NULL, '2024-02-26 05:12:08', '2024-02-26 05:12:08'),
+(6, 'ICIC Bank', '9632587419', NULL, '2024-02-26 06:01:07', '2024-02-26 06:01:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `contact_name` varchar(100) NOT NULL,
+  `account_id` bigint(20) UNSIGNED NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(15) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `contact_name`, `account_id`, `email`, `phone`, `created_at`, `updated_at`) VALUES
+(1, 'swaraj nayak', 1, 'swaraj123@yahoo.com', '9632587419', '2024-02-26 04:57:48', '2024-02-26 04:57:48'),
+(2, 'Gatikrishna Sahoo', 2, 'gatikrishasahoo123@yahoo.com', '9632587418', '2024-02-26 05:00:47', '2024-02-26 05:00:47'),
+(3, 'Sagar Behera', 3, 'sagarkumar@ralecon.com', '9632587415', '2024-02-26 05:04:51', '2024-02-26 05:04:51'),
+(4, 'Sagar Behera', 4, 'sagarkumar@ralecon.com', '9632587415', '2024-02-26 05:09:00', '2024-02-26 05:09:00'),
+(5, 'swaraj nayak', 5, 'swaraj123@yahoo.com', '9632587419', '2024-02-26 05:12:08', '2024-02-26 05:12:08'),
+(6, 'Adil Khan', 6, 'adil123@google.com', '9632587419', '2024-02-26 06:01:07', '2024-02-26 06:01:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `deals`
+--
+
+CREATE TABLE `deals` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `amount` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `deal_name` varchar(100) NOT NULL,
+  `closing_date` date NOT NULL,
+  `deal_stage` varchar(100) DEFAULT NULL,
+  `account_id` bigint(20) UNSIGNED NOT NULL,
+  `contact_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `deals`
+--
+
+INSERT INTO `deals` (`id`, `amount`, `deal_name`, `closing_date`, `deal_stage`, `account_id`, `contact_id`, `created_at`, `updated_at`) VALUES
+(1, 0.00, 'Ralecon website with admin panel', '2024-12-18', 'Needs Analysis', 4, 4, '2024-02-26 05:09:00', '2024-02-26 05:09:00'),
+(2, 0.00, 'Travel Website', '2024-08-15', 'Negotiation', 5, 5, '2024-02-26 05:12:08', '2024-02-26 05:12:08'),
+(3, 0.00, 'app & website (college)', '2024-11-16', 'Negotiation', 6, 6, '2024-02-26 06:01:07', '2024-02-26 06:01:07');
 
 -- --------------------------------------------------------
 
@@ -69,7 +151,6 @@ CREATE TABLE `leads` (
 
 INSERT INTO `leads` (`id`, `first_name`, `title`, `phone`, `lead_source`, `last_name`, `company`, `email`, `lead_status`, `street`, `state`, `country`, `city`, `zip_code`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Sagar', 'web designer', '9632587415', 'Search', 'Behera', 'Ralecon', 'sagarkumar@ralecon.com', 'Negotiation', 'khorda', 'orissa', 'india', 'Bhubaneswar', '751016', 'testing', '2024-02-19 05:59:13', '2024-02-19 23:17:25'),
-(2, 'swaraj', 'Java Developer', '9632587419', 'Direct Call', 'nayak', 'digit insurance', 'swaraj123@yahoo.com', 'Needs Analysis', 'khorda', 'orissa', 'india', 'Bhubaneswar', '751016', 'test', '2024-02-19 06:20:05', '2024-02-19 06:20:05'),
 (4, 'Gatikrishna', 'Product Enginner', '9632587418', 'Socail Media', 'Sahoo', 'TATA', 'gatikrishasahoo123@yahoo.com', 'Negotiation', 'khorda', 'orissa', 'india', 'Bhubaneswar', '751016', 'product engineer testing', '2024-02-19 22:41:05', '2024-02-19 22:41:05');
 
 -- --------------------------------------------------------
@@ -93,7 +174,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2024_02_19_110519_create_leads_table', 2);
+(5, '2024_02_19_110519_create_leads_table', 2),
+(6, '2024_02_26_095501_create_accounts_table', 3),
+(7, '2024_02_26_095702_create_contacts_table', 3),
+(8, '2024_02_26_100119_create_deals_table', 3);
 
 -- --------------------------------------------------------
 
@@ -154,6 +238,27 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `contacts_account_id_foreign` (`account_id`);
+
+--
+-- Indexes for table `deals`
+--
+ALTER TABLE `deals`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `deals_account_id_foreign` (`account_id`),
+  ADD KEY `deals_contact_id_foreign` (`contact_id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -198,6 +303,24 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `deals`
+--
+ALTER TABLE `deals`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -207,13 +330,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `leads`
 --
 ALTER TABLE `leads`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -226,6 +349,23 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD CONSTRAINT `contacts_account_id_foreign` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`);
+
+--
+-- Constraints for table `deals`
+--
+ALTER TABLE `deals`
+  ADD CONSTRAINT `deals_account_id_foreign` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`),
+  ADD CONSTRAINT `deals_contact_id_foreign` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

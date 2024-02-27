@@ -224,4 +224,24 @@ class AdminController extends Controller
         $deals = Deal::with('get_account_details')->with('get_contact_details')->get();
         return view('deals.manage-deals', compact('deals'));
     }
+
+    public function add_account(Request $request)
+    {
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'account_name' => 'required',
+                'phone' => 'required',
+            ]);
+
+            $accounts = new Account;
+            $accounts->account_name = $request->account_name;
+            $accounts->phone = $request->phone;
+            $accounts->website = $request->website;
+            $accounts->save();
+            return redirect('/accounts/manage-accounts')->with('message','Accounts Details Added Successfully');
+        }
+        return view('accounts.add_account');
+    }
 }
