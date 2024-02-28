@@ -37,7 +37,7 @@
                                 <td>{{ $deal->get_account_details->account_name }}</td>
                                 <td>{{ $deal->get_contact_details->contact_name }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                                    <a href="{{ url('/deals/edit-deals/'.$deal->id) }}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
                                     <a href="{{ url('/deals/delete-deals/'.$deal->id) }}" onclick="return confirm('Are You Sure, You want To Delete This Lead?')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                                 </td>
                             </tr>

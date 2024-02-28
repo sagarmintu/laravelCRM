@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2024 at 01:04 PM
+-- Generation Time: Feb 28, 2024 at 06:18 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -64,8 +64,8 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `contact_name`, `account_id`, `email`, `phone`, `created_at`, `updated_at`) VALUES
-(1, 'Gatikrishna Sahoo', 1, 'gatikrishasahoo1996@yahoo.com', '6370501311', '2024-02-27 05:03:35', '2024-02-27 06:32:54'),
-(3, 'Piyush Tripathy', 1, 'piyushtripathy12@gmail.com', '9632587418', '2024-02-27 05:25:31', '2024-02-27 05:25:31');
+(4, 'Prasanjit nayak', 1, 'pinkun123@gmail.com', '9632587415', '2024-02-27 22:27:50', '2024-02-27 22:27:50'),
+(5, 'Pratyush Kumar Dash', 1, 'pratyush123@yahoo.com', '9632587419', '2024-02-27 23:25:11', '2024-02-27 23:25:11');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,8 @@ CREATE TABLE `deals` (
 --
 
 INSERT INTO `deals` (`id`, `amount`, `deal_name`, `closing_date`, `deal_stage`, `account_id`, `contact_id`, `created_at`, `updated_at`) VALUES
-(1, 0.00, 'Ralecon website with admin', '2024-07-10', 'Needs Analysis', 1, 1, '2024-02-27 05:03:35', '2024-02-27 05:03:35');
+(4, 0.00, 'Travlling Website', '2024-03-29', 'Qualifications', 1, 4, '2024-02-27 23:24:41', '2024-02-27 23:24:41'),
+(5, 3600.00, 'Website Design', '2024-11-20', 'Proposal/Price Quote', 1, 5, '2024-02-27 23:25:40', '2024-02-27 23:47:41');
 
 -- --------------------------------------------------------
 
@@ -301,13 +302,13 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `deals`
 --
 ALTER TABLE `deals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

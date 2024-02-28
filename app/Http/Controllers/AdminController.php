@@ -382,4 +382,39 @@ class AdminController extends Controller
         $deal->delete();
         return redirect('/deals/manage-deals')->with('message','Deal Details Deleted');
     }
+
+    public function edit_deal($id, Request $request)
+    {
+        $deal = Deal::findOrFail($id);
+        if ($deal == '')
+        {
+            return redirect('/deals/manage-deals');
+        }
+
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'deal_name' => 'required',
+                'closing_date' => 'required',
+                'account_id' => 'required',
+                'contact_id' => 'required',
+            ]);
+
+            $deal->amount = $request->amount;
+            $deal->deal_name = $request->deal_name;
+            $deal->closing_date = $request->closing_date;
+            $deal->deal_stage = $request->deal_stage;
+            $deal->account_id = $request->account_id;
+            $deal->contact_id = $request->contact_id;
+            $deal->save();
+            return redirect('/deals/manage-deals')->with('message','Deal Details Updated Successfully');
+        }
+
+        $data['deal_details'] = $deal;
+        $data['account_data'] = Account::all();
+        $data['contact_data'] = Contact::all();
+
+        return view('deals.edit_deal')->with($data);
+    }
 }
