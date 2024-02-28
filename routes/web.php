@@ -53,6 +53,8 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::group(['prefix' => 'deals'], function(){
         Route::get('/manage-deals', [AdminController::class, 'manage_deals']);
+        Route::get('/add-deal', [AdminController::class, 'add_deal']);
+        Route::post('/add-deal', [AdminController::class, 'add_deal']);
     });
 
 });

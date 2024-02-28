@@ -342,4 +342,33 @@ class AdminController extends Controller
         $contact->delete();
         return redirect('/contacts/manage-contacts')->with('message','Contact Details Deleted');
     }
+
+    public function add_deal(Request $request)
+    {
+        $data['account_data'] = Account::all();
+        $data['contact_data'] = Contact::all();
+
+        $submit = $request['submit'];
+        if($submit == "submit")
+        {
+            $request->validate([
+                'deal_name' => 'required',
+                'closing_date' => 'required',
+                'account_id' => 'required',
+                'contact_id' => 'required',
+            ]);
+
+            $deal = new Deal;
+            $deal->amount = $request->amount;
+            $deal->deal_name = $request->deal_name;
+            $deal->closing_date = $request->closing_date;
+            $deal->deal_stage = $request->deal_stage;
+            $deal->account_id = $request->account_id;
+            $deal->contact_id = $request->contact_id;
+            $deal->save();
+            return redirect('/contacts/manage-contacts')->with('message','Deal Details Added Successfully');
+        }
+
+        return view('deals.add_deal')->with($data);
+    }
 }
