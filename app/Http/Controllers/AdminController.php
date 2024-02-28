@@ -331,4 +331,15 @@ class AdminController extends Controller
         $data['account_data'] = Account::all();
         return view('contacts.edit_contact')->with($data);
     }
+
+    public function delete_contacts($id)
+    {
+        $contact = Contact::findOrFail($id);
+        if ($contact == '')
+        {
+            return redirect('/contacts/manage-contacts');
+        }
+        $contact->delete();
+        return redirect('/contacts/manage-contacts')->with('message','Contact Details Deleted');
+    }
 }

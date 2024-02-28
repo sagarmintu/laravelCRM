@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2024 at 05:30 AM
+-- Generation Time: Feb 27, 2024 at 01:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,13 +41,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `account_name`, `phone`, `website`, `created_at`, `updated_at`) VALUES
-(1, 'digit insurance', '9632587419', '', '2024-02-26 04:57:48', '2024-02-26 04:57:48'),
-(2, 'TATA', '9632587418', NULL, '2024-02-26 05:00:47', '2024-02-26 05:00:47'),
-(3, 'Ralecon', '9632587415', NULL, '2024-02-26 05:04:51', '2024-02-26 05:04:51'),
-(4, 'Ralecon', '9632587412', 'https://www.ralecon.com/', '2024-02-26 05:09:00', '2024-02-26 22:56:48'),
-(5, 'digit insurance', '9632587419', NULL, '2024-02-26 05:12:08', '2024-02-26 05:12:08'),
-(6, 'ICIC Bank', '6932541785', 'https://www.icicibank.com/', '2024-02-26 06:01:07', '2024-02-26 22:56:13'),
-(7, 'Belal Hasan Khan', '9632587412', 'TCS', '2024-02-26 22:38:07', '2024-02-26 22:38:07');
+(1, 'TATA', '9632587418', NULL, '2024-02-27 05:03:35', '2024-02-27 05:03:35');
 
 -- --------------------------------------------------------
 
@@ -70,12 +64,8 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `contact_name`, `account_id`, `email`, `phone`, `created_at`, `updated_at`) VALUES
-(1, 'swaraj nayak', 1, 'swaraj123@yahoo.com', '9632587419', '2024-02-26 04:57:48', '2024-02-26 04:57:48'),
-(2, 'Gatikrishna Sahoo', 2, 'gatikrishasahoo123@yahoo.com', '9632587418', '2024-02-26 05:00:47', '2024-02-26 05:00:47'),
-(3, 'Sagar Behera', 3, 'sagarkumar@ralecon.com', '9632587415', '2024-02-26 05:04:51', '2024-02-26 05:04:51'),
-(4, 'Sagar Behera', 4, 'sagarkumar@ralecon.com', '9632587415', '2024-02-26 05:09:00', '2024-02-26 05:09:00'),
-(5, 'swaraj nayak', 5, 'swaraj123@yahoo.com', '9632587419', '2024-02-26 05:12:08', '2024-02-26 05:12:08'),
-(6, 'Adil Khan', 6, 'adil123@google.com', '9632587419', '2024-02-26 06:01:07', '2024-02-26 06:01:07');
+(1, 'Gatikrishna Sahoo', 1, 'gatikrishasahoo1996@yahoo.com', '6370501311', '2024-02-27 05:03:35', '2024-02-27 06:32:54'),
+(3, 'Piyush Tripathy', 1, 'piyushtripathy12@gmail.com', '9632587418', '2024-02-27 05:25:31', '2024-02-27 05:25:31');
 
 -- --------------------------------------------------------
 
@@ -100,9 +90,7 @@ CREATE TABLE `deals` (
 --
 
 INSERT INTO `deals` (`id`, `amount`, `deal_name`, `closing_date`, `deal_stage`, `account_id`, `contact_id`, `created_at`, `updated_at`) VALUES
-(1, 0.00, 'Ralecon website with admin panel', '2024-12-18', 'Needs Analysis', 4, 4, '2024-02-26 05:09:00', '2024-02-26 05:09:00'),
-(2, 0.00, 'Travel Website', '2024-08-15', 'Negotiation', 5, 5, '2024-02-26 05:12:08', '2024-02-26 05:12:08'),
-(3, 0.00, 'app & website (college)', '2024-11-16', 'Negotiation', 6, 6, '2024-02-26 06:01:07', '2024-02-26 06:01:07');
+(1, 0.00, 'Ralecon website with admin', '2024-07-10', 'Needs Analysis', 1, 1, '2024-02-27 05:03:35', '2024-02-27 05:03:35');
 
 -- --------------------------------------------------------
 
@@ -152,7 +140,7 @@ CREATE TABLE `leads` (
 
 INSERT INTO `leads` (`id`, `first_name`, `title`, `phone`, `lead_source`, `last_name`, `company`, `email`, `lead_status`, `street`, `state`, `country`, `city`, `zip_code`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Sagar', 'web designer', '9632587415', 'Search', 'Behera', 'Ralecon', 'sagarkumar@ralecon.com', 'Negotiation', 'khorda', 'orissa', 'india', 'Bhubaneswar', '751016', 'testing', '2024-02-19 05:59:13', '2024-02-19 23:17:25'),
-(4, 'Gatikrishna', 'Product Enginner', '9632587418', 'Socail Media', 'Sahoo', 'TATA', 'gatikrishasahoo123@yahoo.com', 'Negotiation', 'khorda', 'orissa', 'india', 'Bhubaneswar', '751016', 'product engineer testing', '2024-02-19 22:41:05', '2024-02-19 22:41:05');
+(7, 'swaraj', 'java developer', '9632587419', 'Direct Call', 'nayak', 'digit insurance', 'swarajnayak123@yahoo.com', 'Closed Won', 'khorda', 'orissa', 'india', 'Bhubaneswar', '751018', NULL, '2024-02-27 05:04:20', '2024-02-27 05:04:20');
 
 -- --------------------------------------------------------
 
@@ -176,9 +164,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2024_02_19_110519_create_leads_table', 2),
-(6, '2024_02_26_095501_create_accounts_table', 3),
-(7, '2024_02_26_095702_create_contacts_table', 3),
-(8, '2024_02_26_100119_create_deals_table', 3);
+(9, '2024_02_26_095501_create_accounts_table', 3),
+(10, '2024_02_26_095702_create_contacts_table', 3),
+(11, '2024_02_26_100119_create_deals_table', 3);
 
 -- --------------------------------------------------------
 
@@ -307,19 +295,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `deals`
 --
 ALTER TABLE `deals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -331,13 +319,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `leads`
 --
 ALTER TABLE `leads`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -359,14 +347,14 @@ ALTER TABLE `users`
 -- Constraints for table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD CONSTRAINT `contacts_account_id_foreign` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`);
+  ADD CONSTRAINT `contacts_account_id_foreign` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `deals`
 --
 ALTER TABLE `deals`
-  ADD CONSTRAINT `deals_account_id_foreign` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`),
-  ADD CONSTRAINT `deals_contact_id_foreign` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`);
+  ADD CONSTRAINT `deals_account_id_foreign` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `deals_contact_id_foreign` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

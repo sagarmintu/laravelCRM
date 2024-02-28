@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/add-contact', [AdminController::class, 'add_contact']);
         Route::get('/edit-contacts/{id}', [AdminController::class, 'edit_contact']);
         Route::post('/edit-contacts/{id}', [AdminController::class, 'edit_contact']);
+        Route::get('/delete-contacts/{id}', [AdminController::class, 'delete_contacts']);
     });
 
     Route::group(['prefix' => 'deals'], function(){
