@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/manage-deals', [AdminController::class, 'manage_deals']);
         Route::get('/add-deal', [AdminController::class, 'add_deal']);
         Route::post('/add-deal', [AdminController::class, 'add_deal']);
+        Route::get('/delete-deals/{id}', [AdminController::class, 'delete_deals']);
     });
 
 });

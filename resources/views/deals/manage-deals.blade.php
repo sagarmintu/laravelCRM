@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h4 class="text-black">All Deals</h4>
                 <div>
-                    <a href="{{ url('/leads/add-account') }}" class="btn btn-primary btn-sm" style="float: inline-end; margin-bottom: 10px;"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
+                    <a href="{{ url('/deals/add-deal') }}" class="btn btn-primary btn-sm" style="float: inline-end; margin-bottom: 10px;"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
                 </div>
                 <div class="table-responsive">
                     <table id="lead-table" class="table table-bordered table-hover">
@@ -38,7 +38,7 @@
                                 <td>{{ $deal->get_contact_details->contact_name }}</td>
                                 <td>
                                     <a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                                    <a href="#" onclick="return confirm('Are You Sure, You want To Delete This Lead?')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                                    <a href="{{ url('/deals/delete-deals/'.$deal->id) }}" onclick="return confirm('Are You Sure, You want To Delete This Lead?')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                                 </td>
                             </tr>
                             @endforeach

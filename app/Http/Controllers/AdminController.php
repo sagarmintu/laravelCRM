@@ -366,9 +366,20 @@ class AdminController extends Controller
             $deal->account_id = $request->account_id;
             $deal->contact_id = $request->contact_id;
             $deal->save();
-            return redirect('/contacts/manage-contacts')->with('message','Deal Details Added Successfully');
+            return redirect('/deals/manage-deals')->with('message','Deal Details Added Successfully');
         }
 
         return view('deals.add_deal')->with($data);
+    }
+
+    public function delete_deals($id)
+    {
+        $deal = Deal::findOrFail($id);
+        if ($deal == '')
+        {
+            return redirect('/deals/manage-deals');
+        }
+        $deal->delete();
+        return redirect('/deals/manage-deals')->with('message','Deal Details Deleted');
     }
 }

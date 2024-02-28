@@ -57,7 +57,6 @@
                                         <fieldset class="form-group">
                                             <select name="deal_stage" class="form-control">
                                                 @foreach($lead_status as $single)
-                                                    <option value="" disabled>Select Deal</option>
                                                     <option value="{{ $single }}">{{ $single }}</option>
                                                 @endforeach
                                             </select>
@@ -73,7 +72,6 @@
                                         <fieldset class="form-group">
                                             <select name="account_id" class="form-control">
                                                 @foreach ($account_data as $account)
-                                                    <option value="" disabled>Select Account</option>
                                                     <option value="{{ $account->id }}">{{ $account->account_name }}</option>
                                                 @endforeach
                                             </select>
@@ -89,7 +87,6 @@
                                         <fieldset class="form-group">
                                             <select name="contact_id" class="form-control">
                                                 @foreach ($contact_data as $contact)
-                                                    <option value="" disabled>Select Contact</option>
                                                     <option value="{{ $contact->id }}">{{ $contact->contact_name }}</option>
                                                 @endforeach
                                             </select>
